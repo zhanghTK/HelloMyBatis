@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 加载属性配置文件-->
+	<properties resource="application.properties">
+		<property name="username" value="db_user"/>
+  		<property name="password" value="verysecurepwd"/>	
+	</properties>
+
+    <!-- 设置全局参数-->
+	<settings>
+		  <setting name="cacheEnabled" value="true"/>
+		  <setting name="lazyLoadingEnabled" value="true"/>
+		  <setting name="multipleResultSetsEnabled" value="true"/>
+		  <setting name="useColumnLabel" value="true"/>
+		  <setting name="useGeneratedKeys" value="false"/>
+		  <setting name="autoMappingBehavior" value="PARTIAL"/>
+		  <setting name="defaultExecutorType" value="SIMPLE"/>
+		  <setting name="defaultStatementTimeout" value="25000"/>
+		  <setting name="safeRowBoundsEnabled" value="false"/>
+		  <setting name="mapUnderscoreToCamelCase" value="false"/>
+		  <setting name="localCacheScope" value="SESSION"/>
+		  <setting name="jdbcTypeForNull" value="OTHER"/>
+		  <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+	</settings>
+
+    <!-- 类型别名-->
+    <!-- 在mapper.xml中resultType和parameterType需要使用类的完全限定名-->
+    <!-- 在此处声明别名可以不需要在mapper.xml中使用完全限定名-->
+    <!-- 还可以使用@Alias("")声明别名-->
+    <typeAliases>
+        <!-- 单个类声明别名-->
+        <typeAlias alias="Tutor" type="com.mybatis3.domain.Tutor"/>
+        <!-- 制定包下的所有类声明别名-->
+	  	<package name="com.mybatis3.domain"/>
+    </typeAliases>
+
+    <!-- 注册自定义的类型处理器-->
+    <typeHandlers>
+        <typeHandler handler="com.mybatis3.typehandlers.PhoneTypeHandler"/>
+        <package name="com.mybatis3.typehandlers"/>
+    </typeHandlers>
+
+    <!-- dataSources环境配置-->
+    <environments default="development">
+        <!-- environment可以不唯一-->
+        <!-- 当environment不唯一时，需要为每个环境创建一个SqlSessionFactory-->
+        <!-- inputStream = Resources.getResourceAsStream("mybatis-config.xml");-->
+        <!-- defaultSqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);-->
+        <!-- cartSqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, "shoppingcart");-->
+        <!-- reportSqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, "reports");-->
+        <environment id="development">
+            <!-- transactionManager type的可选值JDBC,MANAGED-->
+            <!-- JDBC：使用数据库的事务管理-->
+            <!-- MANAGED：托管给服务器进行管理-->
+            <transactionManager type="JDBC"/>
+            <!-- dataSource type的可选值：UNPOOLED,POOLED,JNDI-->
+            <!-- UNPOOLED：每次请求都创建一个新的连接，使用完毕后关闭连接-->
+            <!-- POOLED：MyBatis创建一个数据库连接池，请求的连接从数据库连接池获取，使用完毕归还-->
+            <!-- JNDI：使用配置好的JNDI数据源-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+	    
+	    <environment id="production">
+            <transactionManager type="JDBC"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="java:comp/jdbc/MyBatisDemoDS"/>
+            </dataSource>
+        </environment>
+	    
+    </environments>
+
+    <!-- 配置mapper.xml-->
+    <mappers>
+        <!-- resources指定classpath中的mapper.xml-->
+        <mapper resource="com/mybatis3/mappers/StudentMapper.xml" />
+        <!-- url通过文件系统路径或者web url指向mapper-->
+        <mapper url="file:///D:/mybatisdemo/app/mappers/TutorMapper.xml" />
+        <!-- class属性指向一个mapper接口-->
+        <mapper class="com.mybatis3.mappers.TutorMapper" />
+        <!-- package指向可以找到mapper接口的包名-->
+        <package name="com.mybatis3.mappers" />
+    </mappers>
+</configuration>

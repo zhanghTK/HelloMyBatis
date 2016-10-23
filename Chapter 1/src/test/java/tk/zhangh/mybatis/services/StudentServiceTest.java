@@ -42,16 +42,14 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void testFindStudentById()
-    {
+    public void testFindStudentById() {
         Student student = studentService.findStudentById(1);
         assertNotNull(student);
         log.info(student.toString());
     }
 
     @Test
-    public void testCreateUStudent()
-    {
+    public void testCreateUStudent() {
         Student student = new Student();
         int id = 4;
         student.setStudId(id);
@@ -68,8 +66,7 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void testUpdateStudent()
-    {
+    public void testUpdateStudent() {
         int id = 2;
         Student student =studentService.findStudentById(id);
         student.setStudId(id);
