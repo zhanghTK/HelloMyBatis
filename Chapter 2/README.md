@@ -27,7 +27,9 @@ How to Run:
 // sqlSessionFactory = MyBatisUtil.getSqlSessionFactoryUsingJavaAPI();
 ```
 
-**关于类型处理器**
+---
+
+**关于类型处理器**typeHandlers
 
 MyBatis运行时创建PreparedStatement对象，使用setXxx()方式对占位符设置值
 
