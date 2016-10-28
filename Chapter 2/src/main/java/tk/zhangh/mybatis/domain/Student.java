@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Student model
- *
+ * <p>
  * Created by ZhangHao on 2016/10/20.
  */
 @Data

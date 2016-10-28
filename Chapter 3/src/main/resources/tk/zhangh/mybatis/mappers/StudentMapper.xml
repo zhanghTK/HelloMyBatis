@@ -25,7 +25,8 @@
         <id property="studId" column="stud_id"/>
         <result property="name" column="name"/>
         <result property="email" column="email"/>
-        <association property="address" column="addr_id" select="tk.zhangh.mybatis.mappers.AddressMapper.selectAddressById"/>
+        <association property="address" column="addr_id"
+                     select="tk.zhangh.mybatis.mappers.AddressMapper.selectAddressById"/>
     </resultMap>
 
     <resultMap type="Student" id="StudentWithAddressNestedResultMap">

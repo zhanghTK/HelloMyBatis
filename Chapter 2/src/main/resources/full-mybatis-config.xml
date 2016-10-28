@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
     <!-- 加载属性配置文件-->
-	<properties resource="application.properties">
-		<property name="username" value="db_user"/>
-  		<property name="password" value="verysecurepwd"/>	
-	</properties>
+    <properties resource="application.properties">
+        <property name="username" value="db_user"/>
+        <property name="password" value="verysecurepwd"/>
+    </properties>
 
     <!-- 设置全局参数-->
-	<settings>
-		  <setting name="cacheEnabled" value="true"/>
-		  <setting name="lazyLoadingEnabled" value="true"/>
-		  <setting name="multipleResultSetsEnabled" value="true"/>
-		  <setting name="useColumnLabel" value="true"/>
-		  <setting name="useGeneratedKeys" value="false"/>
-		  <setting name="autoMappingBehavior" value="PARTIAL"/>
-		  <setting name="defaultExecutorType" value="SIMPLE"/>
-		  <setting name="defaultStatementTimeout" value="25000"/>
-		  <setting name="safeRowBoundsEnabled" value="false"/>
-		  <setting name="mapUnderscoreToCamelCase" value="false"/>
-		  <setting name="localCacheScope" value="SESSION"/>
-		  <setting name="jdbcTypeForNull" value="OTHER"/>
-		  <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
-	</settings>
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="25000"/>
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        <setting name="mapUnderscoreToCamelCase" value="false"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>
 
     <!-- 类型别名-->
     <!-- 在mapper.xml中resultType和parameterType需要使用类的完全限定名-->
@@ -35,7 +35,7 @@
         <!-- 单个类声明别名-->
         <typeAlias alias="Tutor" type="com.mybatis3.domain.Tutor"/>
         <!-- 制定包下的所有类声明别名-->
-	  	<package name="com.mybatis3.domain"/>
+        <package name="com.mybatis3.domain"/>
     </typeAliases>
 
     <!-- 注册自定义的类型处理器-->
@@ -68,25 +68,25 @@
                 <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
-	    
-	    <environment id="production">
+
+        <environment id="production">
             <transactionManager type="JDBC"/>
             <dataSource type="JNDI">
                 <property name="data_source" value="java:comp/jdbc/MyBatisDemoDS"/>
             </dataSource>
         </environment>
-	    
+
     </environments>
 
     <!-- 配置mapper.xml-->
     <mappers>
         <!-- resources指定classpath中的mapper.xml-->
-        <mapper resource="com/mybatis3/mappers/StudentMapper.xml" />
+        <mapper resource="com/mybatis3/mappers/StudentMapper.xml"/>
         <!-- url通过文件系统路径或者web url指向mapper-->
-        <mapper url="file:///D:/mybatisdemo/app/mappers/TutorMapper.xml" />
+        <mapper url="file:///D:/mybatisdemo/app/mappers/TutorMapper.xml"/>
         <!-- class属性指向一个mapper接口-->
-        <mapper class="com.mybatis3.mappers.TutorMapper" />
+        <mapper class="com.mybatis3.mappers.TutorMapper"/>
         <!-- package指向可以找到mapper接口的包名-->
-        <package name="com.mybatis3.mappers" />
+        <package name="com.mybatis3.mappers"/>
     </mappers>
 </configuration>

@@ -53,31 +53,31 @@ public class StudentServiceTest {
         Student student = new Student();
         int id = 4;
         student.setStudId(id);
-        student.setName("student_"+id);
-        student.setEmail("student_"+id+"gmail.com");
+        student.setName("student_" + id);
+        student.setEmail("student_" + id + "gmail.com");
         student.setDob(new Date());
         log.info(student.toString());
         studentService.createStudent(student);
         Student newStudent = studentService.findStudentById(id);
         assertNotNull(newStudent);
         assertEquals("student_" + id, newStudent.getName());
-        assertEquals("student_"+id+"gmail.com", newStudent.getEmail());
+        assertEquals("student_" + id + "gmail.com", newStudent.getEmail());
         log.info(newStudent.toString());
     }
 
     @Test
     public void testUpdateStudent() {
         int id = 2;
-        Student student =studentService.findStudentById(id);
+        Student student = studentService.findStudentById(id);
         student.setStudId(id);
-        student.setName("student_"+id);
-        student.setEmail("student_"+id+"gmail.com");
+        student.setName("student_" + id);
+        student.setEmail("student_" + id + "gmail.com");
         Date now = new Date();
         student.setDob(now);
         studentService.updateStudent(student);
         Student updatedStudent = studentService.findStudentById(id);
         assertNotNull(updatedStudent);
-        assertEquals("student_"+id, updatedStudent.getName());
-        assertEquals("student_"+id+"gmail.com", updatedStudent.getEmail());
+        assertEquals("student_" + id, updatedStudent.getName());
+        assertEquals("student_" + id + "gmail.com", updatedStudent.getEmail());
     }
 }

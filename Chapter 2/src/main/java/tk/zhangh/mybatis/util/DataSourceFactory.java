@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package tk.zhangh.mybatis.util;
 
@@ -15,39 +15,38 @@ import java.util.Properties;
 /**
  * DataSource帮助类
  * 根据配置文件获取DataSource
- *
+ * <p>
  * Created by ZhangHao on 2016/10/20.
  */
 public class DataSourceFactory {
-	private static final Properties PROPERTIES = new Properties();
-	
-	static {
-		try {
-			InputStream is = DataSourceFactory.class.getResourceAsStream("/application.properties");
-			PROPERTIES.load(is);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static DataSource getDataSource() {
-		String driver = PROPERTIES.getProperty("jdbc.driverClassName");
-		String url = PROPERTIES.getProperty("jdbc.url");
-		String username = PROPERTIES.getProperty("jdbc.username");
-		String password = PROPERTIES.getProperty("jdbc.password");
-		PooledDataSource dataSource = new PooledDataSource(driver, url, username, password);
-		return dataSource;
-	}
-	
-	public static DataSource getJNDIDataSource() {
-		String dataSourceJNDIName = "java:comp/env/jdbc/MyBatisDemoDS";
-		try {
-			InitialContext ctx = new InitialContext();
-			DataSource dataSource = (DataSource) ctx.lookup(dataSourceJNDIName);
-			return dataSource;
-		} 
-		catch (NamingException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    private static final Properties PROPERTIES = new Properties();
+
+    static {
+        try {
+            InputStream is = DataSourceFactory.class.getResourceAsStream("/application.properties");
+            PROPERTIES.load(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static DataSource getDataSource() {
+        String driver = PROPERTIES.getProperty("jdbc.driverClassName");
+        String url = PROPERTIES.getProperty("jdbc.url");
+        String username = PROPERTIES.getProperty("jdbc.username");
+        String password = PROPERTIES.getProperty("jdbc.password");
+        PooledDataSource dataSource = new PooledDataSource(driver, url, username, password);
+        return dataSource;
+    }
+
+    public static DataSource getJNDIDataSource() {
+        String dataSourceJNDIName = "java:comp/env/jdbc/MyBatisDemoDS";
+        try {
+            InitialContext ctx = new InitialContext();
+            DataSource dataSource = (DataSource) ctx.lookup(dataSourceJNDIName);
+            return dataSource;
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

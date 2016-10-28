@@ -14,7 +14,7 @@ public class TutorService {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     public Tutor findTutorById(int tutorId) {
-        logger.debug("findTutorById :"+tutorId);
+        logger.debug("findTutorById :" + tutorId);
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             TutorMapper mapper = sqlSession.getMapper(TutorMapper.class);
@@ -25,7 +25,7 @@ public class TutorService {
     }
 
     public Tutor findTutorById2(int tutorId) {
-        logger.debug("findTutorById :"+tutorId);
+        logger.debug("findTutorById :" + tutorId);
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             TutorMapper mapper = sqlSession.getMapper(TutorMapper.class);

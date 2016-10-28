@@ -11,7 +11,7 @@
         <result column="tutor_name" property="name"/>
         <result column="email" property="email"/>
         <association property="address" resultMap="tk.zhangh.mybatis.mappers.AddressMapper.AddressResult"/>
-        <collection property="courses"  resultMap="tk.zhangh.mybatis.mappers.CourseMapper.CourseResult"  />
+        <collection property="courses" resultMap="tk.zhangh.mybatis.mappers.CourseMapper.CourseResult"/>
     </resultMap>
 
     <resultMap type="Tutor" id="TutorWithCoursesNestedSelect">
@@ -19,7 +19,8 @@
         <result column="tutor_name" property="name"/>
         <result column="email" property="email"/>
         <association property="address" resultMap="tk.zhangh.mybatis.mappers.AddressMapper.AddressResult"/>
-        <collection property="courses"  column="tutor_id" select="tk.zhangh.mybatis.mappers.CourseMapper.selectCoursesByTutor"/>
+        <collection property="courses" column="tutor_id"
+                    select="tk.zhangh.mybatis.mappers.CourseMapper.selectCoursesByTutor"/>
     </resultMap>
 
     <!-- SELECT t.tutor_id, t.name as tutor_name, email, a.addr_id, street, city, state, zip, country,

@@ -23,7 +23,7 @@ public class TutorDynaSqlProvider {
 
     public String findTutorByIdSql(final int tutorId) {
         /*return new SQL() {{
-			SELECT("tutor_id as tutorId, name, email");
+            SELECT("tutor_id as tutorId, name, email");
 			FROM("tutors");
 			WHERE("tutor_id = #{tutorId}"); // using placeholder #{tutorId} 
 		}}.toString();*/

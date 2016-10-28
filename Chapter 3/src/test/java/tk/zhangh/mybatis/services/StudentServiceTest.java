@@ -12,9 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by ZhangHao on 2016/10/23.
@@ -78,8 +76,8 @@ public class StudentServiceTest {
         logger.info("创建前数据库有记录：" + students.size() + "条");
         Map<String, Object> studMap = new HashMap<String, Object>();
         long ts = System.currentTimeMillis();
-        studMap.put("name","stud_"+ts);
-        studMap.put("email","stud_"+ts+"@gmail.com");
+        studMap.put("name", "stud_" + ts);
+        studMap.put("email", "stud_" + ts + "@gmail.com");
         studMap.put("phone", null);
         studentService.createStudentWithMap(studMap);
         List<Student> newStudents = studentService.findAllStudents();
@@ -98,7 +96,7 @@ public class StudentServiceTest {
         Student updatedStudent = studentService.updateStudent(stud);
         assertNotNull(updatedStudent);
         assertEquals("stud_" + ts, updatedStudent.getName());
-        assertEquals("stud_"+ts+"@gmail.com", updatedStudent.getEmail());
+        assertEquals("stud_" + ts + "@gmail.com", updatedStudent.getEmail());
         logger.info(updatedStudent.toString());
     }
 

@@ -7,7 +7,7 @@
 <mapper namespace="tk.zhangh.mybatis.mappers.StudentMapper">
 
     <resultMap type="Student" id="StudentResult">
-        <id 	property="studId" column="stud_id"/>
+        <id property="studId" column="stud_id"/>
         <result property="name" column="name"/>
         <result property="email" column="email"/>
         <result property="dob" column="dob"/>

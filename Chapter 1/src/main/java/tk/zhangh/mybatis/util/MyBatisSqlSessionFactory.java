@@ -17,9 +17,8 @@ import java.util.Properties;
  * Created by ZhangHao on 2016/10/18.
  */
 public class MyBatisSqlSessionFactory {
-    private static SqlSessionFactory sqlSessionFactory;
-
     private static final Properties PROPERTIES = new Properties();
+    private static SqlSessionFactory sqlSessionFactory;
 
     static {
         try {
@@ -31,7 +30,7 @@ public class MyBatisSqlSessionFactory {
     }
 
     public static SqlSessionFactory getSqlSessionFactory() {
-        if(sqlSessionFactory==null) {
+        if (sqlSessionFactory == null) {
             InputStream inputStream = null;
             try {
                 inputStream = Resources.getResourceAsStream("mybatis-config.xml");
@@ -39,7 +38,7 @@ public class MyBatisSqlSessionFactory {
             } catch (IOException e) {
                 throw new RuntimeException(e.getCause());
             } finally {
-                if(inputStream != null) {
+                if (inputStream != null) {
                     try {
                         inputStream.close();
                     } catch (IOException e) {

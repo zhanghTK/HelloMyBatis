@@ -17,7 +17,7 @@ public class CourseService {
     private Logger logger = LoggerFactory.getLogger(CourseService.class);
 
     public List<Course> searchCourses(Map<String, Object> map) {
-        logger.debug("searchCourses By :"+map);
+        logger.debug("searchCourses By :" + map);
         SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
         try {
             CourseMapper mapper = sqlSession.getMapper(CourseMapper.class);

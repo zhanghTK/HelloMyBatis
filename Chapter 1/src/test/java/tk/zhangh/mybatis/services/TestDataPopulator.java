@@ -30,10 +30,10 @@ public class TestDataPopulator {
             scriptRunner.runScript(reader);
             logger.info("drop_tables.sql executed successfully");
             reader = Resources.getResourceAsReader("sql/create_tables.sql");
-            scriptRunner.runScript(reader );
+            scriptRunner.runScript(reader);
             logger.info("create_tables.sql executed successfully");
             reader = Resources.getResourceAsReader("sql/sample_data.sql");
-            scriptRunner.runScript(reader );
+            scriptRunner.runScript(reader);
             logger.info("sample_data.sql executed successfully");
             connection.commit();
             reader.close();

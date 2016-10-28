@@ -21,11 +21,11 @@ public class PhoneNumber implements Serializable {
     private String number;
 
     public PhoneNumber(String string) {
-        if(string != null){
+        if (string != null) {
             String[] parts = string.split("-");
-            if(parts.length>0) this.countryCode=parts[0];
-            if(parts.length>1) this.stateCode=parts[1];
-            if(parts.length>2) this.number=parts[2];
+            if (parts.length > 0) this.countryCode = parts[0];
+            if (parts.length > 1) this.stateCode = parts[1];
+            if (parts.length > 2) this.number = parts[2];
         }
     }
 

@@ -11,7 +11,7 @@ import java.sql.Connection;
 
 /**
  * 测试数据使用的数据初始化类
- *
+ * <p>
  * Created by ZhangHao on 2016/10/20.
  */
 public class TestDataPopulator {
@@ -31,10 +31,10 @@ public class TestDataPopulator {
             scriptRunner.runScript(reader);
             logger.info("drop_tables.sql executed successfully");
             reader = Resources.getResourceAsReader("sql/create_tables.sql");
-            scriptRunner.runScript(reader );
+            scriptRunner.runScript(reader);
             logger.info("create_tables.sql executed successfully");
             reader = Resources.getResourceAsReader("sql/sample_data.sql");
-            scriptRunner.runScript(reader );
+            scriptRunner.runScript(reader);
             logger.info("sample_data.sql executed successfully");
             connection.commit();
             reader.close();
