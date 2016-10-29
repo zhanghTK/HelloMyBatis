@@ -1,23 +1,12 @@
 
 Chapter 2: Bootstrapping MyBatis
 =======================================
-This module, chapter02, is a maven based java project to demonstrate the following approaches to configure and bootstrap MyBatis.
- a) Configuration using XML 
- b) Configuration using Java API.
-
-Note: You can create MySQL Database tables using scripts in src/main/resources/sql folder. 
 
 How to Run:
-
-```
-1. Configure Database Connection properties like hostname, username and password in src/main/resources/application.properties file.
-2. Run StudentServiceTest JUnit Test class by using the appropriate configuration style in com.mybatis3.services.StudentServiceTest.setup() method.
-3. Build using Maven: mvn clean package
-```
-
-**如何使用（补充）：**
-
-`StudentServiceTest`类的`setup()`通过注释选择配置方式（默认使用XML配置）
+	1. 创建数据库执行src/main/resources/sql目录下脚本
+	2. 修改src/main/resources/application.properties目录下配置文件
+	3. 运行Junit测试
+  4. `StudentServiceTest`类的`setup()`通过注释选择配置方式（默认使用XML配置）
 
 ```java
 // 使用XML配置

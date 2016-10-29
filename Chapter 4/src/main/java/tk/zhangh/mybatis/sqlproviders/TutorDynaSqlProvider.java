@@ -21,25 +21,29 @@ public class TutorDynaSqlProvider {
         }}.toString();
     }
 
-    public String findTutorByIdSql(final int tutorId) {
-        /*return new SQL() {{
-            SELECT("tutor_id as tutorId, name, email");
-			FROM("tutors");
-			WHERE("tutor_id = #{tutorId}"); // using placeholder #{tutorId} 
-		}}.toString();*/
-
+    public String findTutorByIdSql() {
         return new SQL() {{
             SELECT("tutor_id as tutorId, name, email");
             FROM("tutors");
-            WHERE("tutor_id=" + tutorId);
+            WHERE("tutor_id = #{tutorId}"); // using placeholder #{tutorId}
         }}.toString();
+
+//        return new SQL() {{
+//            SELECT("tutor_id as tutorId, name, email");
+//            FROM("tutors");
+//            WHERE("tutor_id=" + tutorId);
+//        }}.toString();
     }
 
 
     public String findTutorByNameAndEmailSql(Map<String, Object> map) {
-        //String name = (String) map.get("name");
-        //String email = (String) map.get("email");
-        //System.out.println(name+":"+email);
+//        final String name = (String) map.get("name");
+//        final String email = (String) map.get("email");
+//        return new SQL() {{
+//            SELECT("tutor_id as tutorId, name, email");
+//            FROM("tutors");
+//            WHERE("name='" + name + "' AND email='" + email + "'");
+//        }}.toString();
 
         return new SQL() {{
             SELECT("tutor_id as tutorId, name, email");

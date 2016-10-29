@@ -21,6 +21,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <!-- 事务管理 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
@@ -31,12 +32,14 @@
       <property name="basePackage" value="tk.zhangh.mybatis.mappers" />
     </bean> -->
 
+    <!-- 一个线程安全的Bean，可以从中获取sql session-->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <!--<property name="typeAliases" value=","/>-->
         <property name="typeAliasesPackage" value="tk.zhangh.mybatis.domain"/>
         <property name="typeHandlersPackage" value="tk.zhangh.mybatis.typehandlers"/>
         <property name="mapperLocations" value="classpath*:tk/zhangh/mybatis/**/*.xml"/>

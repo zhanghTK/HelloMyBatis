@@ -1,3 +1,12 @@
+Chapter 3: SQL Mappers using XML
+=================================
+
+How to Run:
+	1. 创建数据库执行src/main/resources/sql目录下脚本
+	2. 修改src/main/resources/application.properties目录下配置文件
+	3. 运行Junit测试
+  4. `StudentServiceTest`类的`setup()`通过注释选择配置方式（默认使用XML配置）
+
 ## mapper.xml与mapper.java
 
 | mapper.xml       | mapper接口 |                                     |

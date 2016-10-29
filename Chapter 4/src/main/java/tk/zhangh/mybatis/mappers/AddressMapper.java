@@ -1,6 +1,3 @@
-/**
- *
- */
 package tk.zhangh.mybatis.mappers;
 
 import org.apache.ibatis.annotations.Select;

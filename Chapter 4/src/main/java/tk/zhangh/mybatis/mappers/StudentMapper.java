@@ -35,7 +35,9 @@ public interface StudentMapper {
     @ResultMap("tk.zhangh.mybatis.mappers.StudentMapper.StudentWithAddressResult")
     Student selectStudentWithAddress(int studId);
 
+//    insert语句，返回插入行数
     @Insert("insert into students(name,email,addr_id, phone) values(#{name},#{email},#{address.addrId},#{phone})")
+//    指定主键，并且自动生成主键
     @Options(useGeneratedKeys = true, keyProperty = "studId")
     void insertStudent(Student student);
 
@@ -43,6 +45,7 @@ public interface StudentMapper {
     @Options(useGeneratedKeys = true, keyProperty = "studId")
     void insertStudentWithMap(Map<String, Object> map);
 
+//    update语句
     @Update("update students set name=#{name}, email=#{email}, phone=#{phone} where stud_id=#{studId}")
     void updateStudent(Student student);
 

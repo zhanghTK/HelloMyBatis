@@ -1,13 +1,11 @@
 
 Chapter 1: Getting started with MyBatis
 =======================================
-This module, chapter01, is a maven based java project with MyBatis configured.
 
 How to Run:
-	1. Create MySQL Database tables using scripts in src/main/resources/sql folder.
-	2. Configure Database Connection properties like hostname, username and password in src/main/resources/application.properties file.
-	3. Run StudentServiceTest JUnit Test class.
-	4. Build using Maven: mvn clean package
+	1. 创建数据库执行src/main/resources/sql目录下脚本
+	2. 修改src/main/resources/application.properties目录下配置文件
+	3. 运行Junit测试
 
 **问题** ：启动后`StudentMapper.xml`文件找不到
 
