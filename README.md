@@ -1,1 +1,1 @@
- code for java persistence with mybatis
+Code for *java persistence with mybatis*
